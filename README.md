@@ -13,13 +13,13 @@ A cinematic Stranger Things themed login page built using **HTML, CSS, and JavaS
 ## 📸 Screenshots
 
 ### Intro Screen
-![Intro](screenshots/intro.png)
+![Intro](Screenshots/intro.png)
 
 ### Login Page
-![Login](screenshots/login.png)
+![Login](Screenshots/login.png)
 
 ### Error & Password UX
-![Error](screenshots/error.png)
+![Error](Screenshots/error.png)
 
 ## 🚀 Live Demo
 🔗 https://aryanmodi07.github.io/stranger-things-login/
