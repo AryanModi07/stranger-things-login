@@ -1,0 +1,221 @@
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+.background {
+    position: fixed;
+    inset: 0;
+    background: url("assets/stranger.jpg") center/cover no-repeat;
+    filter: brightness(0.3);
+    animation: slowZoom 20s infinite alternate;
+    z-index: 1;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* ================= INTRO SCREEN ================= */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.intro-text {
+    color: red;
+    font-size: 4rem;
+    letter-spacing: 6px;
+    text-shadow: 0 0 20px red;
+    animation: introZoom 3s ease forwards;
+}
+
+@keyframes introZoom {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1.2); opacity: 1; }
+}
+
+/* ================= LOGIN BOX ================= */
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    border: 2px solid red;
+    box-shadow: 0 0 30px red;
+    animation: floatBox 4s ease-in-out infinite;
+    z-index: 5;
+}
+
+@keyframes floatBox {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+/* ================= LOGO ================= */
+.logo {
+    color: red;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px red;
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.season {
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* ================= INPUTS ================= */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: black;
+    border: 1px solid red;
+    color: white;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: crimson;
+    box-shadow: 0 0 8px crimson;
+}
+
+/* ================= PASSWORD UX ================= */
+.password-wrapper {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+#capsWarning {
+    display: none;
+    color: orange;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+#strengthText {
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.weak { color: red; }
+.medium { color: orange; }
+.strong { color: lightgreen; }
+
+/* ================= BUTTONS ================= */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: transparent;
+    border: 2px solid red;
+    color: red;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: red;
+    color: black;
+    box-shadow: 0 0 20px red;
+}
+
+button.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Toggle button */
+#toggleWorld {
+    margin-top: 10px;
+    border-color: crimson;
+    color: crimson;
+}
+
+/* ================= TEXT ================= */
+.hint {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* ================= ERROR HANDLING ================= */
+.error-msg {
+    display: none;
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.login-box.error {
+    animation: shake 0.3s;
+}
+
+/* ================= MOUSE FOLLOW LIGHT ================= */
+.cursor-light {
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 0, 0, 0.45),
+        rgba(255, 0, 0, 0.2),
+        transparent 70%
+    );
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    mix-blend-mode: screen;
+}
+
+/* ================= UPSIDE DOWN MODE ================= */
+body.upside {
+    filter: invert(1) hue-rotate(180deg);
+    transition: 0.5s;
+}
